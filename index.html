@@ -1,14 +1,58 @@
 <!DOCTYPE html>
-<html>
-<body>
-    <img src=1768308842110.jpg alt="이미지" style="max-width: 100%;"-webkit-touch-callout: none; 
-            -webkit-user-select: none; 
-            -khtml-user-select: none; 
-            -moz-user-select: none; 
-            -ms-user-select: none; 
-            user-select: none; 
-            pointer-events: none;" 
-     alt="이미지">
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>My Image Site</title>
+    <style>
+        /* 배경을 검은색으로, 글자를 흰색으로 설정 */
+        body {
+            background-color: #000000;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: sans-serif;
+            /* 드래그 및 우클릭 방지 CSS */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        .image-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        img {
+            max-width: 90%;
+            height: auto;
+            /* 이미지 위에서 마우스 동작 막기 */
+            pointer-events: none;
+        }
+
+        /* 이미지 위에 투명한 막을 씌워 우클릭 방지 보완 */
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
+
+    <h1>내 이미지 확인하기</h1>
+
+    <div class="image-container">
+        <img src="1768308842110.jpg" alt="Protected Image">
+        <div class="overlay"></div>
+    </div>
 
 </body>
 </html>
